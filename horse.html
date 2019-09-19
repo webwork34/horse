@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>horse</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            user-select: none;
+        }
+        .box{
+            width: 702px;
+            height: 700px;
+            border: 1px solid black;
+            margin: 20px auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .cell{
+            width: 70px;
+            height: 70px;
+            border: 1px solid black;
+            text-align: center;
+            line-height: 70px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <script>
+    
+        let box = document.querySelector('.box');
+
+        for (let i = 0; i < 100; i++) {
+            let newDiv = document.createElement('div');
+            box.appendChild(newDiv).classList.add('cell');
+        }
+
+        function foo(){
+            //do nothing
+        }
+
+        let allCell = document.querySelectorAll('.cell');
+        let counter = 1;
+        for (let i = 0; i < allCell.length;i++) {
+            allCell[i].addEventListener('click', function(e){
+                if(allCell[i].style.background == 'lightblue' || allCell[i].style.background == 'red' || ( !allCell[i].hasAttribute('data-x') && counter != 1 ) ){
+                    e.preventDefault(); 
+                }else{
+                    for (let j = 0; j < allCell.length; j++) {
+                        if(allCell[j].style.background == 'red') allCell[j].style.background = 'lightblue';
+                    }
+
+                    this.textContent = counter;
+                    this.style.background = 'red';
+                    
+                    if (counter === 1) {
+                        allCell[i].dataset.x = 0;
+                    }else{
+                        for (let j = 0; j < allCell.length; j++) {
+                            allCell[j].removeAttribute('data-x');
+                        }
+                    allCell[i].dataset.x = 0;
+                    }
+
+                    try{this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.dataset.x = 111;}
+                    catch{foo()}
+
+                    try{this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.dataset.x = 111;}
+                    catch{foo()}
+
+                    try{this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.dataset.x = 111;}
+                    catch{foo()}
+
+                    try{this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.dataset.x = 111;}
+                    catch{foo()}
+
+                    //---------------------------------------------------------------------------------------------------------------------------------------------------------
+                    
+                    try{this.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.dataset.x = 111;}
+                    catch{foo()}
+
+                    try{this.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.dataset.x = 111;}
+                    catch{foo()}
+
+                    try{this.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.dataset.x = 111;}
+                    catch{foo()}
+
+                    try{this.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.dataset.x = 111;}
+                    catch{foo()}
+                    
+                    counter++;
+
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>
